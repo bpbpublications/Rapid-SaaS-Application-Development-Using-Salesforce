@@ -1,0 +1,8 @@
+trigger JobRequisitionTrigger on Job_Requisition__c (after update) {
+    If (Trigger.IsAfter){
+        If (Trigger.IsUpdate){
+            JobRequisitionTriggerHandler.onAfterUpdate(Trigger.OldMap, 
+                                                        Trigger.NewMap);
+        }
+    }
+}

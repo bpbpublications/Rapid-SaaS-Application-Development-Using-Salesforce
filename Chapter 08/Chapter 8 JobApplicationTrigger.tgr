@@ -1,0 +1,8 @@
+trigger JobApplicationTrigger on Job_Application__c (before update) {
+    If (Trigger.IsBefore){
+        If (Trigger.IsUpdate){
+            JobApplicationTriggerHandler.onBeforeUpdate(Trigger.OldMap, 
+                                                        Trigger.NewMap);
+        }
+    }
+}

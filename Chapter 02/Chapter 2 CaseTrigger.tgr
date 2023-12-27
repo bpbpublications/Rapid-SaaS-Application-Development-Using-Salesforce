@@ -1,0 +1,9 @@
+trigger CaseTrigger on Case (before insert) {
+	if (Trigger.isInsert) {
+        if (Trigger.isBefore) {
+            for(Case iCase : Trigger.new) {
+                iCase.Description = 'This statement has been added by a trigger. '+ iCase.Description;
+            }
+        }     
+    }
+}

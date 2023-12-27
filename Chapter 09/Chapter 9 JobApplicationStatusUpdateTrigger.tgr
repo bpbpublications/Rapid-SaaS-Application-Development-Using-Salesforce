@@ -1,0 +1,7 @@
+trigger JobApplicationStatusUpdateTrigger on Job_Application_Status_Update__e (after insert) {
+    If (Trigger.IsAfter){
+        If (Trigger.IsInsert){
+            JobApplicationStatusUpdateTriggerHandler.onAfterInsert(Trigger.NewMap);
+        }
+    }
+}
